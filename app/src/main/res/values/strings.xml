@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ContactsApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="grant_buley">Grant Buley</string>
+    <string name="gb">GB</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="first_name">First Name:</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="last_name">Last Name:</string>
+    <string name="phone_number">Phone number:</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="address">Address:</string>
+    <string name="enter_address">Enter address</string>
+    <string name="submit_contact_details">Submit Contact Details</string>
+    <string name="_111_111_1111">111-111-1111</string>
+    <string name="idontcare_st_garland_tx_75044">Idontcare St. Garland, Tx 75044</string>
+    <string name="grant">Grant</string>
+    <string name="buley">Buley</string>
+    <string name="change_contact_details">Change Contact Details</string>
+</resources>

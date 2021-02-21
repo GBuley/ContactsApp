@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_ohfive_vert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".2"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_contact_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="@id/gl_ohfive_vert"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:backgroundTint="@color/black"
+        android:layout_marginLeft="10dp"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.MyTheme.Image" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_contact_initials"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/img_contact_icon"
+        app:layout_constraintEnd_toEndOf="@id/img_contact_icon"
+        app:layout_constraintTop_toTopOf="@id/img_contact_icon"
+        app:layout_constraintBottom_toBottomOf="@id/img_contact_icon"
+        android:text="@string/gb"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/img_contact_icon"
+        app:layout_constraintTop_toTopOf="@id/tv_contact_initials"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/black"
+        android:text="@string/grant_buley"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
