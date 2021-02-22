@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class Address(
-    val city:String,
+    var city:String,
     val streetAddress:String,
     val state:String,
     val zipcode: Long

@@ -2,6 +2,7 @@ package com.example.contactsapp.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -31,8 +32,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
 
     fun getContactById(context: Context, id:Long){
         viewModelScope.launch(Dispatchers.IO) {
-            val contactDao = ContactDb.getDatabase(context)?.contactDao()
-            contactDao?.findContactById(id)
+            val contact = ContactDb.getDatabase(context)?.contactDao()?.findContactById(id)
+            _contact.postValue(contact!!)
         }
     }
     fun getContactByName(context: Context, name:String){
@@ -44,6 +45,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     fun getContacts(context: Context){
         viewModelScope.launch(Dispatchers.IO) {
             val contactDao = ContactDb.getDatabase(context)?.contactDao()
+            _contacts.postValue(contactDao?.getAll)
+        }
+    }
+
+    fun updateContact(context: Context, contact: Contact) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val contactDao = ContactDb.getDatabase(context)?.contactDao()
+            Log.i("TAG", contact.id.toString())
+            contactDao?.updateContact(contact)
             _contacts.postValue(contactDao?.getAll)
         }
     }

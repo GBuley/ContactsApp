@@ -24,17 +24,10 @@
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
         <argument
-            android:name="firstName"
-            app:argType="string" />
-        <argument
-            android:name="lastName"
-            app:argType="string" />
-        <argument
-            android:name="phoneNumbers"
-            app:argType="string[]" />
-        <argument
-            android:name="Address"
-            app:argType="com.example.contactsapp.model.Address" />
+            android:name="contact"
+            app:argType="com.example.contactsapp.model.Contact"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <action
             android:id="@+id/action_editContactFragment_to_contactsFragment"
             app:destination="@id/contactsFragment" />
@@ -48,16 +41,7 @@
             android:id="@+id/action_detailsFragment_to_editContactFragment"
             app:destination="@id/editContactFragment" />
         <argument
-            android:name="firstName"
-            app:argType="string" />
-        <argument
-            android:name="lastName"
-            app:argType="string" />
-        <argument
-            android:name="phoneNumbers"
-            app:argType="string[]" />
-        <argument
-            android:name="Address"
-            app:argType="com.example.contactsapp.model.Address" />
+            android:name="contact"
+            app:argType="com.example.contactsapp.model.Contact" />
     </fragment>
 </navigation>

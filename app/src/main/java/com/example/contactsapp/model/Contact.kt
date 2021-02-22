@@ -12,12 +12,12 @@ import com.squareup.moshi.JsonClass
 @kotlinx.android.parcel.Parcelize
 @JsonClass(generateAdapter = true)
 data class Contact(
-        val fName:String,
-        val lName:String,
-        val address:Address,
-        val phoneNumbers: String,
-        val emails:List<String>
+    var fName:String,
+    var lName:String,
+    var address:Address,
+    var phoneNumbers: String,
+    var emails:List<String>
 ):Parcelable {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="contact_id") var id: Long = 0
+    @ColumnInfo(name="contact_id") var id: Long =0
 }

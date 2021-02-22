@@ -1,9 +1,6 @@
 package com.example.contactsapp.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.contactsapp.model.Contact
 
 @Dao
@@ -17,6 +14,9 @@ interface ContactsDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(contact:Contact): Long
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateContact(contact: Contact)
 
     @get:Query("SELECT * FROM contact")
     val getAll: List<Contact>

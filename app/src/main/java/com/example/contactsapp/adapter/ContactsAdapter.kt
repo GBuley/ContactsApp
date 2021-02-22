@@ -1,10 +1,15 @@
 package com.example.contactsapp.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.contactsapp.R
 import com.example.contactsapp.databinding.ItemContactBinding
 import com.example.contactsapp.model.Contact
+import com.example.contactsapp.view.ContactsFragmentDirections
+import com.example.contactsapp.view.EditContactFragmentArgs
 
 class ContactsAdapter(private var contacts : List<Contact>) : RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
     class ContactViewHolder(private var binding:ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -13,6 +18,10 @@ class ContactsAdapter(private var contacts : List<Contact>) : RecyclerView.Adapt
             binding.tvContactInitials.text = initials
             val firstLast = contact.fName + contact.lName
             binding.nameText.text = firstLast
+            binding.nameText.setOnClickListener {
+                val action = ContactsFragmentDirections.actionContactsFragmentToDetailsFragment(contact)
+                Navigation.findNavController(binding.root).navigate(action)
+            }
         }
 
     }
