@@ -35,6 +35,9 @@
         <argument
             android:name="Address"
             app:argType="com.example.contactsapp.model.Address" />
+        <action
+            android:id="@+id/action_editContactFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

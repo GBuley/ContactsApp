@@ -5,57 +5,60 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.example.contactsapp.R
+import com.example.contactsapp.dao.ContactDb
+import com.example.contactsapp.dao.ContactsDao
+import com.example.contactsapp.databinding.FragmentEditContactBinding
+import com.example.contactsapp.model.Address
+import com.example.contactsapp.model.Contact
+import com.example.contactsapp.viewmodel.MainViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [EditContactFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@ExperimentalStdlibApi
 class EditContactFragment : Fragment() {
-    // TODO: In the xml add email and separate address to 4 parts
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var binding: FragmentEditContactBinding
+    val viewModel: MainViewModel by activityViewModels()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_contact, container, false)
+    )= FragmentEditContactBinding.inflate(layoutInflater, container, false).also {
+        binding = it
+    }.root
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnSubmit.setOnClickListener {
+            val address = Address(binding.etAddress.text.toString(), "", "", 10000)
+            val phoneNumbers = binding.etPhoneNumber.text.toString()
+            val firstName = binding.etFirstName.text.toString()
+            val lastName = binding.etLastName.text.toString()
+            val emails : ArrayList<String> = arrayListOf()
+            emails.add("email")
+            val contact = Contact(firstName, lastName, address, phoneNumbers, emails)
+            viewModel.insertContact(binding.root.context, contact)
+            Navigation.findNavController(view).navigate(R.id.action_editContactFragment_to_contactsFragment)
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EditContactFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             EditContactFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
     }

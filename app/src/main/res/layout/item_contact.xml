@@ -37,6 +37,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/img_contact_icon"
