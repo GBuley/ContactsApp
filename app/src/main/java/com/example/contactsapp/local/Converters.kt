@@ -21,4 +21,17 @@ class Converters {
         return adapter.fromJson(address)?:Address("", "", "", 12345)
     }
 
+    @TypeConverter
+    fun numbersToString(phoneNumber:List<String>):String {
+        val adapter = Moshi.Builder().build().adapter<List<String>>()
+        return adapter.toJson(phoneNumber)
+
+    }
+
+    @TypeConverter
+    fun phoneStringToList(phoneNumbers:String):List<String>?{
+        val adapter = Moshi.Builder().build().adapter<List<String>>()
+        return adapter.fromJson(phoneNumbers)?: listOf<String>()
+    }
+
 }

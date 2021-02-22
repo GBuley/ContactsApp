@@ -22,7 +22,20 @@
         android:id="@+id/editContactFragment"
         android:name="com.example.contactsapp.view.EditContactFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument
+            android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumbers"
+            app:argType="string[]" />
+        <argument
+            android:name="Address"
+            app:argType="com.example.contactsapp.model.Address" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.contactsapp.view.DetailsFragment"
@@ -31,5 +44,17 @@
         <action
             android:id="@+id/action_detailsFragment_to_editContactFragment"
             app:destination="@id/editContactFragment" />
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument
+            android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumbers"
+            app:argType="string[]" />
+        <argument
+            android:name="Address"
+            app:argType="com.example.contactsapp.model.Address" />
     </fragment>
 </navigation>
