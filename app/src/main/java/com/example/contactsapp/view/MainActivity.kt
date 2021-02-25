@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.getContacts(binding.root.context)
         viewModel.contacts.observe(this, Observer { contacts ->
 
-            Log.i("TAG", contacts.get(0).fName)
+//            Log.i("TAG", contacts.get(0).fName)
         })
 
     }

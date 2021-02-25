@@ -1,6 +1,7 @@
 package com.example.contactsapp.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +49,11 @@ class ContactsFragment : Fragment() {
 //            val args = EditContactFragmentArgs.fromBundle()
             Navigation.findNavController(view).navigate(R.id.action_contactsFragment_to_editContactFragment)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("DESTROY", "Destroying fragment contact")
     }
 
     companion object {

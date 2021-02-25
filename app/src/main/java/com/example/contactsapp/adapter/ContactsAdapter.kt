@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactsapp.R
+import com.example.contactsapp.databinding.ItemContact2Binding
 import com.example.contactsapp.databinding.ItemContactBinding
 import com.example.contactsapp.model.Contact
 import com.example.contactsapp.view.ContactsFragmentDirections
 import com.example.contactsapp.view.EditContactFragmentArgs
 
 class ContactsAdapter(private var contacts : List<Contact>) : RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
-    class ContactViewHolder(private var binding:ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ContactViewHolder(private var binding:ItemContact2Binding) : RecyclerView.ViewHolder(binding.root) {
         fun load(contact: Contact) {
             val initials:String = contact.fName[0].toString() + contact.lName[0].toString()
             binding.tvContactInitials.text = initials
@@ -27,7 +28,7 @@ class ContactsAdapter(private var contacts : List<Contact>) : RecyclerView.Adapt
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
-        val binding:ItemContactBinding = ItemContactBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ItemContact2Binding.inflate(LayoutInflater.from(parent.context))
         return ContactViewHolder(binding)
     }
 
